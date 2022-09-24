@@ -14,10 +14,10 @@ public class Cli {
         return playerName;
     }
 
-    public String greetPlayer() {
+    public void greetPlayer() {
         System.out.println("Welcome to the Brain Games!");
         System.out.print("May I have your name? ");
         setPlayerName();
-        return "Hello, " + getPlayerName() + "!";
+        System.out.println("Hello, " + getPlayerName() + "!");
     }
 }
