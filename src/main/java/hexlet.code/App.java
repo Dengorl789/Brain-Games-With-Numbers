@@ -1,8 +1,29 @@
 package hexlet.code;
 
+import java.util.Scanner;
+
 public class App {
     public static void main(String[] args) {
-        System.out.println("Welcome to the Brain Games");
-        Cli.getPlayerName();
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Please enter the game number and press Enter."
+                + "\n1 - Greet"
+                + "\n2 - Even"
+                + "\n0 - Exit"
+                + "\nYour choice: ");
+
+        int gameNumber = scanner.nextInt();
+        var newPlayer = new Cli();
+
+        switch (gameNumber) {
+            case 1:
+                newPlayer.greetPlayer();
+                break;
+            case 2:
+                GameEven.playingGameEven();
+                break;
+            default:
+                return;
+        }
+
     }
 }
