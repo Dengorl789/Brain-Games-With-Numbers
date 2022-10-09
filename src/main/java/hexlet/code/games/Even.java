@@ -4,8 +4,7 @@ import hexlet.code.Engine;
 
 public class Even {
     public static String generateGeneralQuestionEven() {
-        String generalQuestion = "Answer 'yes' if the number is even, otherwise answer 'no'.";
-        return generalQuestion;
+        return "Answer 'yes' if the number is even, otherwise answer 'no'.";
     }
     public static String[] generateQuestionAnswerPairEven() {
         int number = Engine.getRandomizedNumbers(1, 30);

@@ -2,6 +2,7 @@ package hexlet.code;
 
 import hexlet.code.games.Calc;
 import hexlet.code.games.Even;
+import hexlet.code.games.GCD;
 
 import java.util.Random;
 import java.util.Scanner;
@@ -12,28 +13,30 @@ public class Engine {
         String playerName = Cli.getPlayerName();
         String generalQuestion;
         switch (gameNumber) {
-            case 2:
+            case 2 -> {
                 generalQuestion = Even.generateGeneralQuestionEven();
                 System.out.println(generalQuestion);
-                break;
-            case 3:
+            }
+            case 3 -> {
                 generalQuestion = Calc.generateGeneralQuestionCalc();
                 System.out.println(generalQuestion);
-                break;
-            default:
-                break;
+            }
+            case 4 -> {
+                generalQuestion = GCD.generateGeneralQuestionGCD();
+                System.out.println(generalQuestion);
+            }
+            default -> {
+            }
         }
         int numberOfRounds = 3;
         for (int i = 0; i < numberOfRounds; i++) {
             String[] questionAnswerPair = new String[2];
-            switch (gameNumber) {
-                case 2:
-                    questionAnswerPair = Even.generateQuestionAnswerPairEven();
-                    break;
-                case 3:
-                    questionAnswerPair = Calc.generateQuestionAnswerPairCalc();
-                    break;
-                default: break;
+            if (gameNumber == 2) {
+                questionAnswerPair = Even.generateQuestionAnswerPairEven();
+            } else if (gameNumber == 3) {
+                questionAnswerPair = Calc.generateQuestionAnswerPairCalc();
+            } else if (gameNumber == 4) {
+                questionAnswerPair = GCD.generateQuestionAnswerPairGCD();
             }
             String question = questionAnswerPair[0];
             String correctAnswer = questionAnswerPair[1];
