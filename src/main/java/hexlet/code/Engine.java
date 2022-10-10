@@ -1,45 +1,18 @@
 package hexlet.code;
 
-import hexlet.code.games.Calc;
-import hexlet.code.games.Even;
-import hexlet.code.games.GCD;
-
 import java.util.Random;
 import java.util.Scanner;
 
 public class Engine {
-    public static void mainEngineMethod(int gameNumber) {
+    public static void mainEngineMethod(String generalQuestion, String[][] questionAndAnswerPair) {
         Cli.greetPlayer();
         String playerName = Cli.getPlayerName();
-        String generalQuestion;
-        switch (gameNumber) {
-            case 2 -> {
-                generalQuestion = Even.generateGeneralQuestionEven();
-                System.out.println(generalQuestion);
-            }
-            case 3 -> {
-                generalQuestion = Calc.generateGeneralQuestionCalc();
-                System.out.println(generalQuestion);
-            }
-            case 4 -> {
-                generalQuestion = GCD.generateGeneralQuestionGCD();
-                System.out.println(generalQuestion);
-            }
-            default -> {
-            }
-        }
+        System.out.println(generalQuestion);
+
         int numberOfRounds = 3;
         for (int i = 0; i < numberOfRounds; i++) {
-            String[] questionAnswerPair = new String[2];
-            if (gameNumber == 2) {
-                questionAnswerPair = Even.generateQuestionAnswerPairEven();
-            } else if (gameNumber == 3) {
-                questionAnswerPair = Calc.generateQuestionAnswerPairCalc();
-            } else if (gameNumber == 4) {
-                questionAnswerPair = GCD.generateQuestionAnswerPairGCD();
-            }
-            String question = questionAnswerPair[0];
-            String correctAnswer = questionAnswerPair[1];
+            String question = questionAndAnswerPair[i][0];
+            String correctAnswer = questionAndAnswerPair[i][1];
             System.out.print(question);
 
             Scanner scan = new Scanner(System.in);
@@ -53,9 +26,9 @@ public class Engine {
             if (message.equals(incorrectMessage)) {
                 return;
             }
-            String congrats = "Congratulations, " + playerName + "!";
-            System.out.println(congrats);
         }
+        String congrats = "Congratulations, " + playerName + "!";
+        System.out.println(congrats);
     }
     public static int getRandomizedNumbers(int bottomBorder, int upperBorder) {
         int diff = upperBorder - bottomBorder;
