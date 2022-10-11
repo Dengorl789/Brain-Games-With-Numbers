@@ -15,7 +15,7 @@ public class Prime {
                     dividersCount++;
                 }
             }
-            String question = "Question: " + number +"\nYour answer: ";
+            String question = "Question: " + number + "\nYour answer: ";
             String correctAnswer = dividersCount == 2 ? "yes" : "no";
             questionAndAnswerPair[i][0] = question;
             questionAndAnswerPair[i][1] = correctAnswer;

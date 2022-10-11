@@ -9,7 +9,7 @@ public class Progression {
         String generalQuestion = "What number is missing in the progression?";
 
         String[][] questionAndAnswerPair = new String[3][2];
-        for (int i = 0; i < 3; i ++) {
+        for (int i = 0; i < 3; i++) {
             int progressionLineLength = Engine.getRandomizedNumbers(5, 10);
             String[] progressionLine = new String[progressionLineLength];
 
