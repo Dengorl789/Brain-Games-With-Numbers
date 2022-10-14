@@ -1,8 +1,8 @@
 run-dist:
-		./build/install/app/bin/app
+		make -C app run-dist
 build:
-		sudo ./gradlew installDist
+		make -C app build
 clean:
-		sudo ./gradlew clean
+		make -C app clean
 lint:
-		sudo gradle checkstyleMain
+		make -C app lint
