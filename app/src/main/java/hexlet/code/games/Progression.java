@@ -21,13 +21,21 @@ public class Progression {
                 int nextElement =  firstElement + (progressionStep * j);
                 progressionLine[j] = String.valueOf(nextElement);
             }
-            int positionToHide = Engine.getRandomizedNumbers(0, progressionLineLength);
+            int positionToHide = Engine.getRandomizedNumbers(0, progressionLineLength - 1);
             String correctAnswer = progressionLine[positionToHide];
             progressionLine[positionToHide] = "..";
-            String question = "Question: " + Arrays.toString(progressionLine) + "\nYour answer: ";
+            String progressionToString = makeFinalViewOfProgressionLine(Arrays.toString(progressionLine));
+            String question = "Question: " + progressionToString + "\nYour answer: ";
             questionAndAnswerPair[i][0] = question;
             questionAndAnswerPair[i][1] = correctAnswer;
         }
         Engine.mainEngineMethod(generalQuestion, questionAndAnswerPair);
+    }
+    public static String makeFinalViewOfProgressionLine(String progressionToString) {
+        String str = progressionToString.replace(",", "")
+                .replace("[", "")
+                .replace("]", "");
+        return str;
+
     }
 }
