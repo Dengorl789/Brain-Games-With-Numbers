@@ -3,12 +3,16 @@ package hexlet.code.games;
 import hexlet.code.Engine;
 
 public class Prime {
+    private static final int NUMBER_OF_QUESTIONS = 3;
+    private static final int FIRST_ARRAY_SIZE = 3;
+    private static final int SECOND_ARRAY_SIZE = 2;
+    private static final int UPPER_BORDER_OF_NUMBER = 50;
     public static void playGamePrime() {
         String generalQuestion = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
 
-        String[][] questionAndAnswerPair = new String[3][2];
-        for (int i = 0; i < 3; i++) {
-            int number = Engine.getRandomizedNumbers(1, 50);
+        String[][] questionAndAnswerPair = new String[FIRST_ARRAY_SIZE][SECOND_ARRAY_SIZE];
+        for (int i = 0; i < NUMBER_OF_QUESTIONS; i++) {
+            int number = Engine.getRandomizedNumbers(1, UPPER_BORDER_OF_NUMBER);
             int dividersCount = 0;
             for (int j = number; j > 0; j--) {
                 if (number == 1) {

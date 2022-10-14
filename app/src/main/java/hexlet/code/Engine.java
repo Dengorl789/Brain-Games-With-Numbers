@@ -4,13 +4,13 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Engine {
+    private static final int NUMBER_OF_ROUNDS = 3;
     public static void mainEngineMethod(String generalQuestion, String[][] questionAndAnswerPair) {
         Cli.greetPlayer();
         String playerName = Cli.getPlayerName();
         System.out.println(generalQuestion);
 
-        int numberOfRounds = 3;
-        for (int i = 0; i < numberOfRounds; i++) {
+        for (int i = 0; i < NUMBER_OF_ROUNDS; i++) {
             String question = questionAndAnswerPair[i][0];
             String correctAnswer = questionAndAnswerPair[i][1];
             System.out.print(question);
