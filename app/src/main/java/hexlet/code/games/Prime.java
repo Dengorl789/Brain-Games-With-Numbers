@@ -11,6 +11,9 @@ public class Prime {
             int number = Engine.getRandomizedNumbers(1, 50);
             int dividersCount = 0;
             for (int j = number; j > 0; j--) {
+                if (number == 1) {
+                    dividersCount++;
+                }
                 if (number % j == 0) {
                     dividersCount++;
                 }
