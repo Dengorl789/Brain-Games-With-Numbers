@@ -10,7 +10,7 @@ public class Progression {
 
         String[][] questionAndAnswerPair = new String[3][2];
         for (int i = 0; i < 3; i++) {
-            int progressionLineLength = Engine.getRandomizedNumbers(5, 10);
+            int progressionLineLength = Engine.getRandomizedNumbers(6, 10);
             String[] progressionLine = new String[progressionLineLength];
 
             int firstElement = Engine.getRandomizedNumbers(1, 15);
