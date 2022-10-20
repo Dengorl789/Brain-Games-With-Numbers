@@ -1,13 +1,15 @@
 package hexlet.code;
 
-import java.util.Random;
 import java.util.Scanner;
 
 public class Engine {
     private static final int NUMBER_OF_ROUNDS = 3;
+    private static final String GREETING_MESSAGE = "Welcome to the Brain Games!\nMay I have your name? ";
     public static void mainEngineMethod(String generalQuestion, String[][] questionAndAnswerPair) {
-        Cli.greetPlayer();
-        String playerName = Cli.getPlayerName();
+        System.out.print(GREETING_MESSAGE);
+        Scanner sc = new Scanner(System.in);
+        String playerName = sc.nextLine().trim();
+        System.out.println("Hello, " + playerName + "!");
         System.out.println(generalQuestion);
 
         for (int i = 0; i < NUMBER_OF_ROUNDS; i++) {
@@ -29,11 +31,6 @@ public class Engine {
         }
         String congrats = "Congratulations, " + playerName + "!";
         System.out.println(congrats);
-    }
-    public static int getRandomizedNumbers(int bottomBorder, int upperBorder) {
-        int diff = upperBorder - bottomBorder;
-        Random rn = new Random();
-        return rn.nextInt(diff + 1) + bottomBorder;
     }
 }
 

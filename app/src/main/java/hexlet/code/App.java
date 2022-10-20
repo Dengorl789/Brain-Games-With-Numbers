@@ -1,10 +1,10 @@
 package hexlet.code;
 
-import hexlet.code.games.Even;
-import hexlet.code.games.Calc;
-import hexlet.code.games.GCD;
-import hexlet.code.games.Progression;
-import hexlet.code.games.Prime;
+import hexlet.code.games.GameOddOrEven;
+import hexlet.code.games.GameToCalculateTheExpression;
+import hexlet.code.games.GameToFindGreatestCommonDivider;
+import hexlet.code.games.GameCompleteTheProgression;
+import hexlet.code.games.GameGuessPrimeNumber;
 
 import java.util.Scanner;
 
@@ -30,11 +30,11 @@ public class App {
 
         switch (gameNumber) {
             case GREET -> Cli.greetPlayer();
-            case GAME_EVEN -> Even.playGameEven();
-            case GAME_CALC -> Calc.playGameCalc();
-            case GAME_GCD -> GCD.playGameGCD();
-            case GAME_PROGRESSION -> Progression.playGameProgression();
-            case GAME_PRIME -> Prime.playGamePrime();
+            case GAME_EVEN -> GameOddOrEven.play();
+            case GAME_CALC -> GameToCalculateTheExpression.play();
+            case GAME_GCD -> GameToFindGreatestCommonDivider.play();
+            case GAME_PROGRESSION -> GameCompleteTheProgression.play();
+            case GAME_PRIME -> GameGuessPrimeNumber.play();
             default -> {
             }
         }

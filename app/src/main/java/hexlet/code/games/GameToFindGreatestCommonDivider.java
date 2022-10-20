@@ -1,19 +1,19 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
+import hexlet.code.Util;
 
-public class GCD {
+public class GameToFindGreatestCommonDivider {
     private static final int NUMBER_OF_QUESTIONS = 3;
     private static final int FIRST_ARRAY_SIZE = 3;
     private static final int SECOND_ARRAY_SIZE = 2;
     private static final int UPPER_BORDER_OF_NUMBER = 50;
-    public static void playGameGCD() {
-        String generalQuestion = "Find the greatest common divisor of given numbers.";
-
+    private static final String GENERAL_QUESTION = "Find the greatest common divisor of given numbers.";
+    public static void play() {
         String[][] questionAndAnswerPair = new String[FIRST_ARRAY_SIZE][SECOND_ARRAY_SIZE];
         for (int i = 0; i < NUMBER_OF_QUESTIONS; i++) {
-            int number1 = Engine.getRandomizedNumbers(1, UPPER_BORDER_OF_NUMBER);
-            int number2 = Engine.getRandomizedNumbers(1, UPPER_BORDER_OF_NUMBER);
+            int number1 = Util.getRandomizedNumbers(1, UPPER_BORDER_OF_NUMBER);
+            int number2 = Util.getRandomizedNumbers(1, UPPER_BORDER_OF_NUMBER);
             int greatestCommonDivider = findGreaterCommonDivider(number1, number2);
             String correctAnswer = String.valueOf(greatestCommonDivider);
 
@@ -21,11 +21,9 @@ public class GCD {
             questionAndAnswerPair[i][0] = question;
             questionAndAnswerPair[i][1] = correctAnswer;
         }
-        Engine.mainEngineMethod(generalQuestion, questionAndAnswerPair);
+        Engine.mainEngineMethod(GENERAL_QUESTION, questionAndAnswerPair);
     }
-    public static int findGreaterCommonDivider(int number1, int number2) {
-        int a = number1;
-        int b = number2;
+    public static int findGreaterCommonDivider(int a, int b) {
         while (a != b) {
             if (a > b) {
                 a = a - b;
@@ -33,7 +31,6 @@ public class GCD {
                 b = b - a;
             }
         }
-        int greatestCommonDivider = a;
-        return greatestCommonDivider;
+        return a;
     }
 }
