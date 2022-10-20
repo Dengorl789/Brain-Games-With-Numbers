@@ -13,20 +13,29 @@ public class GameToCalculateTheExpression {
     private static final int OPERATION_SUBTRACTION = 2;
     private static final int OPERATION_PRODUCT = 3;
     private static final String GENERAL_QUESTION = "What is the result of the expression?";
+    private static String[] pairQuestionAnaAnswer = new String[SECOND_ARRAY_SIZE];
     public static void play() {
         String[][] questionAndAnswerPair = new String[FIRST_ARRAY_SIZE][SECOND_ARRAY_SIZE];
         for (int i = 0; i < NUMBER_OF_QUESTIONS; i++) {
             int number1 = Util.getRandomizedNumbers(1, UPPER_BORDER_OF_NUMBER);
             int number2 = Util.getRandomizedNumbers(1, UPPER_BORDER_OF_NUMBER);
             int operationNumber = getOperationNumber();
-            String[] pairQuestionAnswer = new String[SECOND_ARRAY_SIZE];
+
             switch (operationNumber) {
-                case OPERATION_ADD -> pairQuestionAnswer = makeQuestionsForOperationAdd(number1, number2);
-                case OPERATION_SUBTRACTION -> pairQuestionAnswer = makeQuestionsForOperationSubtraction(number1, number2);
-                case OPERATION_PRODUCT -> pairQuestionAnswer = makeQuestionsForOperationProduct(number1, number2);
+                case OPERATION_ADD:
+                    pairQuestionAnaAnswer = makeQuestionsForOperationAdd(number1, number2);
+                    break;
+                case OPERATION_SUBTRACTION:
+                    pairQuestionAnaAnswer = makeQuestionsForOperationSubtraction(number1, number2);
+                    break;
+                case OPERATION_PRODUCT:
+                    pairQuestionAnaAnswer = makeQuestionsForOperationProduct(number1, number2);
+                    break;
+                default:
+                    break;
             }
-            questionAndAnswerPair[i][0] = pairQuestionAnswer[0];
-            questionAndAnswerPair[i][1] = pairQuestionAnswer[1];
+            questionAndAnswerPair[i][0] = pairQuestionAnaAnswer[0];
+            questionAndAnswerPair[i][1] = pairQuestionAnaAnswer[1];
         }
         Engine.mainEngineMethod(GENERAL_QUESTION, questionAndAnswerPair);
     }
