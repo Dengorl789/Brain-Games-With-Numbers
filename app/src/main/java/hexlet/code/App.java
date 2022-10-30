@@ -15,7 +15,7 @@ public class App {
     private static final int GAME_GCD = 4;
     private static final int GAME_PROGRESSION = 5;
     private static final int GAME_PRIME = 6;
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         System.out.print("Please enter the game number and press Enter."
                 + "\n1 - Greet"
                 + "\n2 - Even"

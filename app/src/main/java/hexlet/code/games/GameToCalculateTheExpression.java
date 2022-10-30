@@ -5,17 +5,16 @@ import hexlet.code.Util;
 
 public class GameToCalculateTheExpression {
     private static final int NUMBER_OF_QUESTIONS = 3;
-    private static final int FIRST_ARRAY_SIZE = 3;
-    private static final int SECOND_ARRAY_SIZE = 2;
     private static final int UPPER_BORDER_OF_NUMBER = 30;
     private static final int UPPER_BORDER_OF_OPERATION = 3;
     private static final int OPERATION_ADD = 1;
     private static final int OPERATION_SUBTRACTION = 2;
     private static final int OPERATION_PRODUCT = 3;
     private static final String GENERAL_QUESTION = "What is the result of the expression?";
-    private static String[] pairQuestionAnaAnswer = new String[SECOND_ARRAY_SIZE];
-    public static void play() {
-        String[][] questionAndAnswerPair = new String[FIRST_ARRAY_SIZE][SECOND_ARRAY_SIZE];
+    private static final int NUMBER_OF_QUESTION_AND_ANSWER = 2;
+    private static String[] pairQuestionAndAnswer = new String[NUMBER_OF_QUESTION_AND_ANSWER];
+    public static void play() throws Exception {
+        String[][] questionAndAnswerPair = Engine.createArrayForQuestionAndAnswerPairs();
         for (int i = 0; i < NUMBER_OF_QUESTIONS; i++) {
             int number1 = Util.getRandomizedNumbers(1, UPPER_BORDER_OF_NUMBER);
             int number2 = Util.getRandomizedNumbers(1, UPPER_BORDER_OF_NUMBER);
@@ -23,19 +22,19 @@ public class GameToCalculateTheExpression {
 
             switch (operationNumber) {
                 case OPERATION_ADD:
-                    pairQuestionAnaAnswer = makeQuestionsForOperationAdd(number1, number2);
+                    pairQuestionAndAnswer = makeQuestionsForOperationAdd(number1, number2);
                     break;
                 case OPERATION_SUBTRACTION:
-                    pairQuestionAnaAnswer = makeQuestionsForOperationSubtraction(number1, number2);
+                    pairQuestionAndAnswer = makeQuestionsForOperationSubtraction(number1, number2);
                     break;
                 case OPERATION_PRODUCT:
-                    pairQuestionAnaAnswer = makeQuestionsForOperationProduct(number1, number2);
+                    pairQuestionAndAnswer = makeQuestionsForOperationProduct(number1, number2);
                     break;
                 default:
-                    break;
+                    throw new Exception("Unknown operation");
             }
-            questionAndAnswerPair[i][0] = pairQuestionAnaAnswer[0];
-            questionAndAnswerPair[i][1] = pairQuestionAnaAnswer[1];
+            questionAndAnswerPair[i][0] = pairQuestionAndAnswer[0];
+            questionAndAnswerPair[i][1] = pairQuestionAndAnswer[1];
         }
         Engine.mainEngineMethod(GENERAL_QUESTION, questionAndAnswerPair);
     }
@@ -44,24 +43,21 @@ public class GameToCalculateTheExpression {
 
     }
     public static String[] makeQuestionsForOperationAdd(int number1, int number2) {
-        String[] pairQuestionAnswer = new String[SECOND_ARRAY_SIZE];
         int corrAnswer = number1 + number2;
-        pairQuestionAnswer[0] = "Question: " + number1 + " + " + number2 + "\nYour answer: ";
-        pairQuestionAnswer[1] = String.valueOf(corrAnswer);
-        return pairQuestionAnswer;
+        pairQuestionAndAnswer[0] = "Question: " + number1 + " + " + number2 + "\nYour answer: ";
+        pairQuestionAndAnswer[1] = String.valueOf(corrAnswer);
+        return pairQuestionAndAnswer;
     }
     public static String[] makeQuestionsForOperationSubtraction(int number1, int number2) {
-        String[] pairQuestionAnswer = new String[SECOND_ARRAY_SIZE];
         int corrAnswer = number1 - number2;
-        pairQuestionAnswer[0] = "Question: " + number1 + " - " + number2 + "\nYour answer: ";
-        pairQuestionAnswer[1] = String.valueOf(corrAnswer);
-        return pairQuestionAnswer;
+        pairQuestionAndAnswer[0] = "Question: " + number1 + " - " + number2 + "\nYour answer: ";
+        pairQuestionAndAnswer[1] = String.valueOf(corrAnswer);
+        return pairQuestionAndAnswer;
     }
     public static String[] makeQuestionsForOperationProduct(int number1, int number2) {
-        String[] pairQuestionAnswer = new String[SECOND_ARRAY_SIZE];
         int corrAnswer = number1 * number2;
-        pairQuestionAnswer[0] = "Question: " + number1 + " * " + number2 + "\nYour answer: ";
-        pairQuestionAnswer[1] = String.valueOf(corrAnswer);
-        return pairQuestionAnswer;
+        pairQuestionAndAnswer[0] = "Question: " + number1 + " * " + number2 + "\nYour answer: ";
+        pairQuestionAndAnswer[1] = String.valueOf(corrAnswer);
+        return pairQuestionAndAnswer;
     }
 }
