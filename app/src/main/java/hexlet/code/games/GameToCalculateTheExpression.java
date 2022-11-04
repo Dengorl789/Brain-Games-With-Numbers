@@ -14,7 +14,7 @@ public class GameToCalculateTheExpression {
     private static final int NUMBER_OF_QUESTION_AND_ANSWER = 2;
     private static String[] pairQuestionAndAnswer = new String[NUMBER_OF_QUESTION_AND_ANSWER];
     public static void play() throws Exception {
-        String[][] questionAndAnswerPair = Engine.createArrayForQuestionAndAnswerPairs();
+        String[][] questionAndAnswerPair = new String[Engine.FIRST_ARRAY_SIZE][Engine.SECOND_ARRAY_SIZE];
         for (int i = 0; i < NUMBER_OF_QUESTIONS; i++) {
             int number1 = Util.getRandomizedNumbers(1, UPPER_BORDER_OF_NUMBER);
             int number2 = Util.getRandomizedNumbers(1, UPPER_BORDER_OF_NUMBER);
@@ -36,7 +36,7 @@ public class GameToCalculateTheExpression {
             questionAndAnswerPair[i][0] = pairQuestionAndAnswer[0];
             questionAndAnswerPair[i][1] = pairQuestionAndAnswer[1];
         }
-        Engine.mainEngineMethod(GENERAL_QUESTION, questionAndAnswerPair);
+        Engine.runGame(GENERAL_QUESTION, questionAndAnswerPair);
     }
     public static int getOperationNumber() {
         return Util.getRandomizedNumbers(1, UPPER_BORDER_OF_OPERATION);
@@ -44,19 +44,19 @@ public class GameToCalculateTheExpression {
     }
     public static String[] makeQuestionsForOperationAdd(int number1, int number2) {
         int corrAnswer = number1 + number2;
-        pairQuestionAndAnswer[0] = "Question: " + number1 + " + " + number2 + "\nYour answer: ";
+        pairQuestionAndAnswer[0] = number1 + " + " + number2;
         pairQuestionAndAnswer[1] = String.valueOf(corrAnswer);
         return pairQuestionAndAnswer;
     }
     public static String[] makeQuestionsForOperationSubtraction(int number1, int number2) {
         int corrAnswer = number1 - number2;
-        pairQuestionAndAnswer[0] = "Question: " + number1 + " - " + number2 + "\nYour answer: ";
+        pairQuestionAndAnswer[0] = number1 + " - " + number2;
         pairQuestionAndAnswer[1] = String.valueOf(corrAnswer);
         return pairQuestionAndAnswer;
     }
     public static String[] makeQuestionsForOperationProduct(int number1, int number2) {
         int corrAnswer = number1 * number2;
-        pairQuestionAndAnswer[0] = "Question: " + number1 + " * " + number2 + "\nYour answer: ";
+        pairQuestionAndAnswer[0] = number1 + " * " + number2;
         pairQuestionAndAnswer[1] = String.valueOf(corrAnswer);
         return pairQuestionAndAnswer;
     }

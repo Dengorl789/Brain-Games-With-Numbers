@@ -13,7 +13,7 @@ public class GameCompleteTheProgression {
     private static final int UPPER_BORDER_OF_STEP = 5;
     private static final String GENERAL_QUESTION = "What number is missing in the progression?";
     public static void play() {
-        String[][] questionAndAnswerPair = Engine.createArrayForQuestionAndAnswerPairs();
+        String[][] questionAndAnswerPair = new String[Engine.FIRST_ARRAY_SIZE][Engine.SECOND_ARRAY_SIZE];
         for (int i = 0; i < NUMBER_OF_QUESTIONS; i++) {
             int progressionLineLength = Util.getRandomizedNumbers(LOWER_BORDER_OF_LINE, UPPER_BORDER_OF_LINE);
             int firstElement = Util.getRandomizedNumbers(1, UPPER_BORDER_OF_NUMBER);
@@ -24,11 +24,10 @@ public class GameCompleteTheProgression {
             String correctAnswer = progressionLine[hiddenPosition];
 
             String finalViewOfProgression = hideElementAndConvertToString(progressionLine, hiddenPosition);
-            String question = "Question: " + finalViewOfProgression + "\nYour answer: ";
-            questionAndAnswerPair[i][0] = question;
+            questionAndAnswerPair[i][0] = finalViewOfProgression;
             questionAndAnswerPair[i][1] = correctAnswer;
         }
-        Engine.mainEngineMethod(GENERAL_QUESTION, questionAndAnswerPair);
+        Engine.runGame(GENERAL_QUESTION, questionAndAnswerPair);
     }
     public static String[] createNewProgressionLine(int progressionLineLength, int firstElement, int progressionStep) {
         String[] progressionLine = new String[progressionLineLength];

@@ -8,15 +8,14 @@ public class GameGuessPrimeNumber {
     private static final int UPPER_BORDER_OF_NUMBER = 50;
     private static final String GENERAL_QUESTION = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
     public static void play() {
-        String[][] questionAndAnswerPair = Engine.createArrayForQuestionAndAnswerPairs();
+        String[][] questionAndAnswerPair = new String[Engine.FIRST_ARRAY_SIZE][Engine.SECOND_ARRAY_SIZE];
         for (int i = 0; i < NUMBER_OF_QUESTIONS; i++) {
             int number = getOddNumber();
-            String question = "Question: " + number + "\nYour answer: ";
             String correctAnswer = checkIfNumberIsPrime(number) ? "yes" : "no";
-            questionAndAnswerPair[i][0] = question;
+            questionAndAnswerPair[i][0] = String.valueOf(number);
             questionAndAnswerPair[i][1] = correctAnswer;
         }
-        Engine.mainEngineMethod(GENERAL_QUESTION, questionAndAnswerPair);
+        Engine.runGame(GENERAL_QUESTION, questionAndAnswerPair);
     }
     public static int getOddNumber() {
         int number = Util.getRandomizedNumbers(1, UPPER_BORDER_OF_NUMBER);

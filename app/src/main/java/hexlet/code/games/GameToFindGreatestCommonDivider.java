@@ -8,18 +8,18 @@ public class GameToFindGreatestCommonDivider {
     private static final int UPPER_BORDER_OF_NUMBER = 50;
     private static final String GENERAL_QUESTION = "Find the greatest common divisor of given numbers.";
     public static void play() {
-        String[][] questionAndAnswerPair = Engine.createArrayForQuestionAndAnswerPairs();
+        String[][] questionAndAnswerPair = new String[Engine.FIRST_ARRAY_SIZE][Engine.SECOND_ARRAY_SIZE];
         for (int i = 0; i < NUMBER_OF_QUESTIONS; i++) {
             int number1 = Util.getRandomizedNumbers(1, UPPER_BORDER_OF_NUMBER);
             int number2 = Util.getRandomizedNumbers(1, UPPER_BORDER_OF_NUMBER);
             int greatestCommonDivider = findGreaterCommonDivider(number1, number2);
             String correctAnswer = String.valueOf(greatestCommonDivider);
 
-            String question = "Question: " + number1 + " " + number2 + "\nYour answer: ";
+            String question =  number1 + " " + number2;
             questionAndAnswerPair[i][0] = question;
             questionAndAnswerPair[i][1] = correctAnswer;
         }
-        Engine.mainEngineMethod(GENERAL_QUESTION, questionAndAnswerPair);
+        Engine.runGame(GENERAL_QUESTION, questionAndAnswerPair);
     }
     public static int findGreaterCommonDivider(int a, int b) {
         while (a != b) {
