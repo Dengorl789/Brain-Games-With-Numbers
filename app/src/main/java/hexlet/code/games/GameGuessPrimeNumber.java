@@ -11,7 +11,7 @@ public class GameGuessPrimeNumber {
         String[][] questionAndAnswerPair = new String[Engine.FIRST_ARRAY_SIZE][Engine.SECOND_ARRAY_SIZE];
         for (int i = 0; i < NUMBER_OF_QUESTIONS; i++) {
             int number = getOddNumber();
-            String correctAnswer = checkIfNumberIsPrime(number) ? "yes" : "no";
+            String correctAnswer = isPrime(number) ? "yes" : "no";
             questionAndAnswerPair[i][0] = String.valueOf(number);
             questionAndAnswerPair[i][1] = correctAnswer;
         }
@@ -24,7 +24,7 @@ public class GameGuessPrimeNumber {
         }
         return number;
     }
-    public static boolean checkIfNumberIsPrime(int number) {
+    public static boolean isPrime(int number) {
         if (number < 2) {
             return false;
         }

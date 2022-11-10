@@ -11,13 +11,13 @@ public class GameOddOrEven {
         String[][] questionAndAnswerPair = new String[Engine.FIRST_ARRAY_SIZE][Engine.SECOND_ARRAY_SIZE];
         for (int i = 0; i < NUMBER_OF_QUESTIONS; i++) {
             int number = Util.getRandomizedNumbers(1, UPPER_BORDER_OF_NUMBER);
-            String correctAnswer = checkParity(number) ? "yes" : "no";
+            String correctAnswer = isEven(number) ? "yes" : "no";
             questionAndAnswerPair[i][0] = String.valueOf(number);
             questionAndAnswerPair[i][1] = correctAnswer;
         }
         Engine.runGame(GENERAL_QUESTION, questionAndAnswerPair);
     }
-    public static boolean checkParity(int number) {
+    public static boolean isEven(int number) {
         return number % 2 == 0;
     }
 }
