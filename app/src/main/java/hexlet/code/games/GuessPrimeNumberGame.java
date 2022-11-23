@@ -3,7 +3,7 @@ package hexlet.code.games;
 import hexlet.code.Engine;
 import hexlet.code.Util;
 
-public class GameGuessPrimeNumber {
+public class GuessPrimeNumberGame {
     private static final int NUMBER_OF_QUESTIONS = 3;
     private static final int UPPER_BORDER_OF_NUMBER = 50;
     private static final String GENERAL_QUESTION = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";

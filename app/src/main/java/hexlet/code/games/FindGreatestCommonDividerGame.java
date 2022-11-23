@@ -3,7 +3,7 @@ package hexlet.code.games;
 import hexlet.code.Engine;
 import hexlet.code.Util;
 
-public class GameToFindGreatestCommonDivider {
+public class FindGreatestCommonDividerGame {
     private static final int NUMBER_OF_QUESTIONS = 3;
     private static final int UPPER_BORDER_OF_NUMBER = 50;
     private static final String GENERAL_QUESTION = "Find the greatest common divisor of given numbers.";

@@ -3,7 +3,7 @@ package hexlet.code.games;
 import hexlet.code.Engine;
 import hexlet.code.Util;
 
-public class GameOddOrEven {
+public class OddOrEvenGame {
     private static final int NUMBER_OF_QUESTIONS = 3;
     private static final int UPPER_BORDER_OF_NUMBER = 30;
     private static final String GENERAL_QUESTION = "Answer 'yes' if the number is even, otherwise answer 'no'.";

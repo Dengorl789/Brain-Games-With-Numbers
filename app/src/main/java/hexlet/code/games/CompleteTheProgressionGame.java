@@ -5,7 +5,7 @@ import hexlet.code.Util;
 
 import java.util.Arrays;
 
-public class GameCompleteTheProgression {
+public class CompleteTheProgressionGame {
     private static final int NUMBER_OF_QUESTIONS = 3;
     private static final int UPPER_BORDER_OF_NUMBER = 15;
     private static final int LOWER_BORDER_OF_LINE = 6;
