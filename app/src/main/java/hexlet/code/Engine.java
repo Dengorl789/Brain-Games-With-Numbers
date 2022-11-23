@@ -23,9 +23,9 @@ public class Engine {
 
             String correctAnswer = questionAndAnswerPair[i][1];
             String correctMessage = "Correct!";
-            String incorrectMessage = "'" + answer + "' is wrong answer ;(. Correct answer was "
-                    + "'" + correctAnswer + "'." + "\nLet's try again, " + playerName + "!";
-            if (answer.equals(correctAnswer)) {
+            if (!answer.equals(correctAnswer)) {
+                String incorrectMessage = "'" + answer + "' is wrong answer ;(. Correct answer was "
+                        + "'" + correctAnswer + "'." + "\nLet's try again, " + playerName + "!";
                 System.out.println(incorrectMessage);
                 return;
             }
