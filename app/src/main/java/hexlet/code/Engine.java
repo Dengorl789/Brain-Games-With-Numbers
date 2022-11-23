@@ -25,11 +25,11 @@ public class Engine {
             String correctMessage = "Correct!";
             String incorrectMessage = "'" + answer + "' is wrong answer ;(. Correct answer was "
                     + "'" + correctAnswer + "'." + "\nLet's try again, " + playerName + "!";
-            String message = answer.equals(correctAnswer) ? correctMessage : incorrectMessage;
-            System.out.println(message);
-            if (message.equals(incorrectMessage)) {
+            if (answer.equals(correctAnswer)) {
+                System.out.println(incorrectMessage);
                 return;
             }
+            System.out.println(correctMessage);
         }
         String congrats = "Congratulations, " + playerName + "!";
         System.out.println(congrats);
